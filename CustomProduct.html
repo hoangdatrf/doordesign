@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Konva Simple Window drawing</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #container {
+        border: 1px solid grey;
+        background-color: lightgrey;
+      }
+
+      #controls {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+      }</style>
+  </head>
+
+  <body>
+    <div id="container"></div>
+
+    <div id="controls">
+      <div style="float: left; padding: 10px">
+        Width:
+        <input type="number" id="widthInput" />
+      </div>
+      <div style="float: left; padding: 10px">
+        Height:
+        <input type="number" id="heightInput" />
+      </div>
+    </div>
+     <div id="buttons"><button id="save" style="margin-top: 10px">Save as image</button></div>
+      <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'Frame')">Frame</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Pattern')">Pattern</button>
+  </div>
+  
+  <div id="Frame" class="w3-container w3-border city">
+    <h2>Frame</h2>
+    <button onClick="changeframe1()"><img style="height: 150px;width: 150px;background-color: gray" src="./images/Frame2/frame2.png"></button>
+    <button onClick="changeframe2()"><img style="height: 150px;width: 150px;background-color: gray" src="./images/Frame3/Frame3.png"></button>
+    <button onClick="changeframe3()"><img style="height: 150px;width: 150px;background-color: gray" src="./images/Frame4/Frame4.png"></button>
+  </div>
+
+  <div id="Pattern" class="w3-container w3-border city" style="display:none">
+    <h2>Pattern</h2>
+     <button onClick="changepattern('./images/Pattern/pt1.jpg')"><img style="height: 150px;width: 150px" src="./images/Pattern/pt1.jpg"></button>
+    <button onClick="changepattern('./images/Pattern/pt2.jpg')"><img style="height: 150px;width: 150px" src="./images/Pattern/pt2.jpg"></button>
+    <button onClick="changepattern('./images/Pattern/pt3.jpg')"><img style="height: 150px;width: 150px" src="./images/Pattern/pt3.jpg"></button>
+    <button onClick="changepattern('./images/Pattern/pt4.jpg')"><img style="height: 150px;width: 150px" src="./images/Pattern/pt4.jpg"></button>
+    <button onClick="changepattern('./images/Pattern/pt5.png')"><img style="height: 150px;width: 150px" src="./images/Pattern/pt5.png"></button>
+    <button onClick="changepattern('./images/Pattern/pt6.png')"><img style="height: 150px;width: 150px" src="./images/Pattern/pt6.png"></button>
+  </div>
+</div>
+  </body>
+  <script src="https://unpkg.com/konva@4.0.12/konva.min.js"></script>
+    <script src="bucky.js"></script>
+    <script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+</html>
